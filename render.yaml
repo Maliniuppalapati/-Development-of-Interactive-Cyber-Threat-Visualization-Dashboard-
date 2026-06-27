@@ -7,10 +7,7 @@ services:
     staticPublishPath: ./client/dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: cybershield-api
-          property: url
+        sync: false  # You will paste your Backend API URL here
 
   # 2. Backend API (Node.js Express)
   - type: web
@@ -26,10 +23,7 @@ services:
       - key: JWT_SECRET
         sync: false  # You will paste this in Dashboard
       - key: AI_ENGINE_URL
-        fromService:
-          type: web
-          name: cybershield-ai-engine
-          property: url
+        sync: false  # You will paste your AI Engine URL here
 
   # 3. AI Engine (Python Flask)
   - type: web
