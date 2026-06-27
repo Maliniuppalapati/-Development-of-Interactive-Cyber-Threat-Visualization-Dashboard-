@@ -41,7 +41,8 @@ const EmailAnalyzer = () => {
     setResult(null);
 
     try {
-      const res = await fetch(`/api/ai/analyze-email`, {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const res = await fetch(`${apiUrl}/api/ai/analyze-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
